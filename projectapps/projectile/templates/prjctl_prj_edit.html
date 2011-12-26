@@ -1,0 +1,31 @@
+{% extends "prjctl_base.html" %}
+
+{% block title %}project edit | Projectile{% endblock %}
+
+
+
+
+{% block breadcrumbs %}
+    <a href="/projectile/" title="Project main">Projectile</a> >
+    project edit
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    <h3>Редактирование о проекта</h3>
+    <a href="/projectile/project-view/{{ var.name_slug }}/" title="edit" >view</a><br/>
+
+
+    <form action="/projectile/project-edit/{{ var.name_slug }}/" method="POST">
+    {% for field in form %}{% csrf_token %}
+        <div>
+            <strong style="color:red;">{{ field.errors }}</strong>
+            {{ field.label_tag }} : {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Изменить">
+    </form>
+
+
+{% endblock %}

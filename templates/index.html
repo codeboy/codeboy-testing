@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}{% endblock %} | codeboy.ru</title>
+
+    {% include "head-includes.html" %}
+    {% block static %}{% endblock %}
+
+</head>
+
+<body>
+
+<div id="wrapper">
+<div class="inner">
+
+<div class="headerBlock" id="header">
+    <div class="headerLogo fLeft">logo</div>
+    <div class="headerTextBlock fRight">
+        <div class="headerSlogan fLeft">We are the greatest!</div>
+        <div class="loginBlock">
+            {% include "ext_user_block.html" %}
+        </div>
+    </div>
+</div>
+
+
+
+    {% block content %}
+        <h1>This is main page</h1>
+        <a href="/projectile/">Projectile</a>
+        <br/><br/>
+        <br/><br/>
+    {% endblock %}
+
+
+</div>
+{#<div class="push"></div>#}
+</div><!-- #wrapper -->
+
+
+
+<div id="footer" class="footer">
+    footer
+</div>
+
+</body>
+</html>

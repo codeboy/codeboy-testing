@@ -1,0 +1,30 @@
+{% extends "prjctl_base.html" %}
+
+{% block title %}Milestone view | Projectile{% endblock %}
+
+
+
+
+{% block breadcrumbs %}
+    <a href="/projectile/" title="Project main">Projectile</a> >
+    milestone view
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    <h3>Информация о вехе</h3>
+    <a href="/projectile/milestone-edit/{{ project }}/{{ var.name_slug }}" title="edit" >edit</a><br/>
+
+    <i>проект : <a href="/projectile/project-view/{{ project.name_slug }}" title="" >{{ project.name }}</a></i><br/>
+    Название : <b>{{ var.name }}</b><br/>
+    Описание :
+    <p>{{ var.description_html|safe }}</p>
+    Дата : {{ var.datetime_modifed|date:"D d M Y" }}<br/>
+
+    {% for var in pat %}
+        {{ var.0|safe }}<br/>
+    {% endfor %}
+
+
+{% endblock %}

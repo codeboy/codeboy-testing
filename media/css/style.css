@@ -1,0 +1,129 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+table {border-collapse: collapse; border-spacing: 0;}
+fieldset, img {
+    border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal; font-weight: normal;}
+ol, ul {list-style: none;}
+caption, th {text-align: left;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%; font-weight: normal;}
+q:before, q:after {content: '';}
+abbr, acronym {border: 0;}
+
+html {height: 100%;}
+body {
+    font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+    width: 100%;
+    height: 100%;
+    background: #E6E6E6;
+}
+
+*+html img {
+    -ms-interpolation-mode: bicubic;
+}
+
+a {color: #2C4D79; outline: none; text-decoration: underline;}
+a:hover {text-decoration: none;}
+p {margin: 0 0 18px}
+img {border: none;}
+input {vertical-align: middle;}
+
+* {margin:0}
+#wrapper, .wrapper {
+    /*position: relative;*/
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -50px;
+}
+.footer, .push {height: 50px; z-index: 101; clear:both;}
+/*.footer {margin: -50px auto 0;}*/
+.inner {height:100%}
+
+
+/* Wizard
+------------------------------------------------------------------------------*/
+.clear {clear: both;}
+
+.spacer {clear: both; height: 0px; overflow: hidden; font-size: 1px; line-height: 0.1;}
+.fLeft {float: left;}
+.fRight {float: right;}
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {height: 70px; padding:10px; border-bottom:1px gray solid;}
+.headerLogo {width:100px; height:65px;}
+.headerTextBlock {width:70%}
+.headerSlogan {}
+
+.authoriseForm {width:310px; float:right;}
+.authoriseForm FORM {float:right;}
+
+
+/* authoriseForm
+-----------------------------------------------------------------------------*/
+.authoriseForm{
+    position: absolute; top: 0px; right: 15px; width: 365px; z-index: 2;}
+.authoriseForm input.text, .authoriseForm input.pass{
+    border: 0; background-color: #FFF; padding: 0 12px; width: 110px; height: 18px;
+    position: absolute; left: 118px; font: 12px Arial; color: #999999; font-style: italic; line-height: 18px;
+    z-index: 1;
+    *zoom:1;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    /*behavior:url('/media/css/PIE.htc');*/
+}
+.authoriseForm input.text{top: 15px; }
+.authoriseForm input.pass{top: 40px; }
+.authoriseForm .go_login{
+    display: block; position: absolute; top: 20px; left: 263px; width: 33px; height: 33px;
+    /*background: transparent url('/media/images/go_login.jpg') no-repeat top left;*/
+    /*border: 0; z-index: 2;*/
+    cursor: pointer; cursor: hand;}
+.authoriseForm .title{display: block; position: absolute; top: 15px; left: 5px; width: 100px; font-size: 14px;}
+.authoriseForm .go_registr{display: block; position: absolute; top: 35px; left: 11px; width: 100px; font-size: 12px; font-style: italic;}
+.authoriseForm .go_repass{display: block; position: absolute; top: 25px; left: 310px; width: 50px; font-size: 10px; font-style: italic; line-height: 1;}
+
+
+#breadcrumbs {height:18px; padding:0 30px 3px;
+    font-size:10px; font-family:Verdana;
+    background: #ffe;
+    border-bottom:1px gray solid;
+
+    /*border:2px #ccc solid;*/
+    /*-moz-border-radius: 7px;*/
+    /*-webkit-border-radius: 7px;*/
+    /*border-radius: 7px;*/
+}
+
+
+#content {}
+
+.contentWraper {margin-top:10px}
+.contentMenuBlock {float:left; width:160px; padding-left:15px;}
+
+.subContentBlock {margin:0 10px 0 170px; border:1px gray solid; padding:10px; background:white}
+.subContentBlock P {margin:3px 5px;}
+
+
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+    /*width: 1000px;*/
+    /*margin: -100px auto 0;*/
+    /*height: 50px;*/
+    /*position: relative;*/
+}
+#footer .unitCont {
+    /*padding-top: 25px;*/
+}

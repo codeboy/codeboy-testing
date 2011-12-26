@@ -1,0 +1,179 @@
+{% extends 'base_accounts.html' %}
+
+{% block title %}Профиль |{% endblock %}
+
+{% block content %}
+
+    {% include 'ext_messages.html' %}
+
+{% load inbox %}
+{% load catalog_extras %}
+<div class="unitBox-Shadow" id="viewRegistration">
+    <div class="unitCont">
+        {% block messages %}
+        <h1>Последние сообщения</h1>
+        <div class="form discussion-form new-issue-form">
+            <div class="fieldswrap">
+                <div class="fieldTableTitle-order">
+                    <table class="tableType1 tableBlue ticketsTable">
+                        <col class="tNumber">
+                        <col class="tDate">
+                        <col class="tTheme">
+                        <col class="tInf">
+                        <thead>
+                            <tr>
+                                <th>Тикет</th>
+                                <th>Дата</th>
+                                <th>Тема</th>
+                                <th>Состояние</th>
+                            </tr>
+                        </thead>
+                     {% if messages_list %}
+                        <tbody>
+                            {% for ticket in messages_list %}
+
+                                {% if ticket.closed %}
+                                    <tr class="js-bsketrow closed">
+                                {% else %}
+                                    {% if ticket.user_new_messages %}
+                                        <tr class="js-bsketrow new-messages">
+                                    {% else %}
+                                        <tr class="js-bsketrow">
+                                    {% endif %}
+                                {% endif %}
+
+                                <td class="">
+                                    #{{ ticket.ticket_id }}
+                                </td>
+                                <td class="">
+                                    {{ ticket.last_updated|date:"j.m.Y" }}
+                                </td>
+                                <td class="">
+                                    <a href="{% url messages_ticket ticket.ticket_id %}">
+                                        {{ ticket.subject }}
+                                    </a>
+                                </td>
+                                <td class="">
+                                    {% if ticket.closed %}
+                                        Закрыт
+                                    {% else %}
+                                        {% if ticket.user_new_messages %}
+                                            Есть новые сообщения
+                                        {% else %}
+                                            Нет новых сообщений
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% else %}
+                        <tbody>
+                            <tr><td colspan="4" style="text-align: center;">У вас еще нет сообщений.</td></tr>
+                        </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+        <div class="clear"></div>
+        <a class="gbutton" href="{% url messages %}">Все сообщения</a>
+        <div class="clear"></div>
+        {% endblock %}
+        {% block orders %}
+        <h1>Последние заказы</h1>
+            <div class="form discussion-form new-issue-form">
+                <div class="fieldswrap">
+                    <div class="fieldTableTitle-order" id="ordersTableH">
+                        <table class="tableType1 tableBlue tableOrder">
+                            <col class="ordDate"/>
+                            <col class="ordNumber"/>
+                            <col class="ordStatus"/>
+                            <col class="ordTotal"/>
+                            <col class=""/>
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>№ Заказа</th>
+                                    <th>Статус</th>
+                                    <th>Сумма</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                    {% if list %}
+                        <tbody>
+                            {% for val in list %}
+                                <tr>
+                                    <td>{{ val.datetime_created|date:"D d M Y" }}</td>
+                                    <td>#{{ val.order_id }}</td>
+                                    <td>
+                                        {% for foo, bar in statuses %}
+                                            {% if foo == val.status %}{{ bar }}{% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td>{% render_price val.summ %} р.</td>
+                                    <td><a href="/basket/history/{{ val.order_id }}" class="gbutton">Посмотреть заказ</a><a href="" title="" class="gbutton">Распечатать счет</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% else %}
+                        <tbody>
+                            <tr><td colspan="5" style="text-align: center;">Вы ещё ничего не заказывали.</td></tr>
+                        </tbody>
+                    {% endif %}
+                        </table>
+                    </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <a class="gbutton" href="{% url basket_history %}">Все заказы</a>
+        <div class="clear"></div>
+        {% endblock %}
+
+        {% comment %}
+        <h1>Личные данные</h1>
+        <hr/>
+        <div class="edit_button">
+            <a href="/profile/edit/">Редактировать</a>
+        </div>
+        <br/>
+        <div class="clear"></div>
+        <h3>Контактные данные</h3>
+            <div class="ioPole div1of2 ">
+                <label>Имя</label> <div >{{ current_user.first_name }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 lastDiv">
+                <label>Фамилия</label> <div>{{ current_user.last_name }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 ">
+                <label>E-mail</label> <div>{{ current_user.email }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 lastDiv">
+                <label>Отчество</label> <div>{{ current_user.patronymic_name }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 ">
+                <label>Дата рождения</label> <div>{{ current_user.datetime_birth }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 lastDiv">
+                <label>Контактный телефон</label> <div>{{ current_user.phone_main }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 ">
+                <label>Мобильный телефон</label> <div>{{ current_user.phone_mobile }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 lastDiv">
+                <label>ICQ</label> <div>{{ current_user.icq }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 ">
+                <label>Skype</label> <div>{{ current_user.skype }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 lastDiv">
+                <label>Рабочее время с</label> <div>{{ current_user.worktime_on }}&nbsp;</div>
+            </div>
+            <div class="ioPole div1of2 ">
+                <label>Рабочее время по</label> <div>{{ current_user.worktime_off }}&nbsp;</div>
+            </div>
+        <div class="clear"></div>
+        {% endcomment %}
+    </div>
+</div>
+{% endblock %}

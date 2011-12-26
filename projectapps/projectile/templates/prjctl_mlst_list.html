@@ -1,0 +1,37 @@
+{% extends "prjctl_base.html" %}
+
+{% block title %}Milestones list | Projectile{% endblock %}
+
+
+
+
+{% block breadcrumbs %}
+    <a href="/projectile/" title="Project main">Projectile</a> >
+    milestones list
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    <h3>Milestones list.</h3>
+
+    {% regroup list by project as prj %}
+    {% for project in prj %}
+        <div><b>{{ project.grouper }}</b><br/>
+{#        {{ project.list|dictsort:"type" }}#}
+        {% for var in project.list %}
+{#        {% for var in project.list|dictsort:"type" %}#}
+            {% for foo, bar in var.TYPES_CHOICES %}
+                {% if foo == var.type %}
+                    {{ bar }}
+                {% endif %}
+            {% endfor %}
+            <i><a href="/projectile/project-view/{{ var.project.name_slug }}/" title="Project - {{ var.project.name }}" >{{ var.project.name }}</a></i>
+            - <a href="/projectile/milestone-view/{{ var.project.name_slug }}/{{ var.name_slug }}" title="Milestone - {{ var.name }}" >{{ var.name }}</a><br/>
+        {% endfor %}
+        </div>
+    {% endfor %}
+
+
+
+{% endblock %}

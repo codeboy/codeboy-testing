@@ -1,0 +1,41 @@
+{% extends 'base_accounts.html' %}
+{% load accounts_extras %}
+{% block title %}Редактирование профиля |{% endblock %}
+
+{% block subcrumbs %}
+<li><span>Редактирование профиля</span></li>
+{% endblock %}
+
+{% block content %}
+    {% include 'ext_messages.html' %}
+
+    <div class="unitBox-Shadow" id="formRegistration">
+        <form action="/profile/edit/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="wrapper-blue">
+                <h3>Контактные данные</h3>
+                Звездочкой отмечены поля, обязательные к заполнению.<br/>
+                {% render_form_field form_profile.email %}
+                {% render_form_field form_profile.first_name 'lastDiv' %}
+                {% render_form_field form_profile.last_name %}
+                {% render_form_field form_profile.patronymic_name 'lastDiv' %}
+                {% render_form_field form_profile.datetime_birth %}
+                {% render_form_field form_profile.phone_main 'lastDiv' %}
+                {% render_form_field form_profile.phone_mobile %}
+                {% render_form_field form_profile.icq 'lastDiv' %}
+                {% render_form_field form_profile.skype %}
+                {% render_form_field form_profile.worktime_on 'lastDiv' %}
+                {% render_form_field form_profile.worktime_off %}
+                {% render_form_field form_profile.position 'lastDiv' %}
+                <div class="clear"></div>
+            </div>
+            <div class="wrapper-grey">
+                <div class="clear"></div>
+                <div style="text-align: center;"><br/>
+                    <input type="submit" value="Сохранить" class="go_reg"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

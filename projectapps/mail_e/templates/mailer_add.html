@@ -1,0 +1,22 @@
+{% extends "base_mailer.html" %}
+{% block static %}
+{{ block.super }}
+<script type="text/javascript" src="/media/ckeditor/ckeditor/ckeditor.js"></script>
+{% endblock %}
+{% block content %}
+<div class="unitBox-Shadow">
+    <div class="unitCont">
+        <form method="post" action="{{ request.path }}">
+        {% csrf_token %}
+        <div>
+            {{ mailer_form.as_p }}
+        </div>
+        <hr/>
+        <div>
+            {{ filter_form.as_p }}
+        </div>
+        <input type="submit" value="Отправить"/>
+        </form>
+    </div>
+</div>
+{% endblock %}

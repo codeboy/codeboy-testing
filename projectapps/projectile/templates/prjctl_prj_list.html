@@ -1,0 +1,23 @@
+{% extends "prjctl_base.html" %}
+
+{% block title %}projects list | Projectile{% endblock %}
+
+
+
+
+{% block breadcrumbs %}
+    <a href="/projectile/" title="Project main">Projectile</a> >
+    projects list
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    <h3>Projects list.</h3>
+
+    {% for var in list %}
+        <a href="/projectile/project-view/{{ var.name_slug }}" title="" >{{ var.name }}</a><br/>
+    {% endfor %}
+
+
+{% endblock %}

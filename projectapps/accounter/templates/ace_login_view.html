@@ -1,0 +1,34 @@
+{% extends 'base_accounts.html' %}
+
+
+{% block title %}Информация об обьекте | ПиУ{% endblock %}
+
+
+{% block breadcrumbs %}
+    <a href="{% url smy %}">ПиУ</a> >
+    <a href="{% url smy_objects_list %}">Список заявок</a> >
+    {% if var %}<a href="{% url smy_object_view var.r_object.name_slug %}">{{ var.r_object.name }}</a> >{% endif %}
+    Редактирование заявки
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    {% if not user.is_authenticated %}
+        <div class="unitBox-Shadow">
+            <div class="unitCont">
+                <h1>Авторизуйтесь пожалуйста</h1>
+                <form action="/login/" method="POST">{% csrf_token %}
+                    <input name="username" type="text" class="text" value="логин"/>
+                    <input name="password" type="password" class="pass" value="пароль"/>
+                    <input name="flag_reffer" type="hidden">
+                    <input type="submit" class="go_login" value="Enter"/>
+                </form>
+                <a href="/registration/" class="go_registr" title="Регистрация">Регистрация</a>
+                <a href="/report/password_stub/" class="go_repass" title="Забыли пароль?">Забыли пароль?</a>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

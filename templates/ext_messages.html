@@ -1,0 +1,11 @@
+{% if messages %}
+    <div class="unitBox-Shadow" id="messages">
+        <div class="wrapper">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

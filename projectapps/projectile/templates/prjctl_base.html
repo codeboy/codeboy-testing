@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block static %}
+    <link rel="stylesheet" href="media/css/projectile.css" type="text/css" media="screen, projection" />
+{% endblock %}
+
+{% block title %}main | Projectile{% endblock %}
+
+
+{% block content %}
+    <div id="breadcrumbs">
+        <a href="/" title="main">main</a> >
+{#        <a href="/projectile/" title="Project main">Projectile</a> >#}
+        {% block breadcrumbs %}Projectile{% endblock %}
+    </div>
+
+    <div class="contentWraper">
+        <div class="contentMenuBlock">
+            {% block prj_menu %}
+                <ul>
+                    <li><a href="/projectile/projects/">Projects</a></li>
+                    <li><a href="/projectile/milestones/">Milestones</a></li>
+                    <li><a href="/accounts/users/">Milestones</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div class="subContentBlock">
+
+            {% block sub_content %}
+                content!
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "prjctl_base.html" %}
+
+{% block title %}project view | Projectile{% endblock %}
+
+
+
+
+{% block breadcrumbs %}
+    <a href="/projectile/" title="Project main">Projectile</a> >
+    project view
+{% endblock %}
+
+{% block sub_content %}
+    {% include 'ext_messages.html' %}
+
+    <h3>Информация о проекте</h3>
+    <a href="/projectile/project-edit/{{ var.name_slug }}" title="edit" >edit</a><br/>
+
+    Название : <b>{{ var.name }}</b><br/>
+    Описание :
+    <p>{{ var.description_html|safe }}</p>
+    Дата : {{ var.datetime_modifed|date:"D d M Y" }}<br/>
+
+
+{% endblock %}

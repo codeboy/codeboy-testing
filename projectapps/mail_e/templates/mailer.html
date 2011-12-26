@@ -1,0 +1,20 @@
+{% extends "base_mailer.html" %}
+{% block content %}
+<div class="unitBox-Shadow">
+    <div class="unitCont">
+        <div>Тема: {{ mailer.subject }}<br/></div>
+        <div>Содержание:<pre>{{ mailer.body|safe }}</pre></br></div>
+        <div>Статус: {{ mailer.get_status_display }}</div>
+        <div>Отослано писем: {{ mailer.counter }}</div>
+        <div>Начато: {{ mailer.start|date:"d.m.Y G:i"|default:"Не отослано" }}</div>
+        <div>Закончено: {{ mailer.end|date:"d.m.Y G:i"|default:"Не отослано" }}</div>
+        <div>Тип: {% if mailer.sms %}СМС{% else %}E-mail{% endif %}</div>
+        <div>
+        Пользователи:<br/>
+        {% for user in users %}
+            {{ user }} | {{ user.mail }} | {{ user.sent_at|date:"d.m.Y G:i"|default:"Не отослано" }} | {{ user.get_status_display }}<br>
+        {% endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}

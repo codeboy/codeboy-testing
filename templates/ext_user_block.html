@@ -1,0 +1,21 @@
+<div class="authoriseForm">
+    {% if user.is_authenticated %}
+        <div class="title">Привет, {{ user.username }}!</div>
+        <div class="go_registr">
+            {% if request.META.PATH_INFO == '/profile/' %}
+            {% else %}
+                <a href="/profile/" title="">профиль</a> |
+            {% endif %}
+            <a href="/logout/" title="">выход</a></p>
+        </div>
+    {% else %}
+        <form action="/login/" method="POST">
+            <input name="username" type="text" class="text" value="логин"/>
+            <input name="password" type="password" class="pass" value="пароль"/>
+            <input type="submit" class="go_login" value="&nbsp;&nbsp;&nbsp;"/>
+        </form>
+        <div class="title">Авторизация</div>
+        <a href="/registration/" class="go_registr" title="Регистрация">Регистрация</a>
+        <a href="/report/password_stub/" class="go_repass" title="Забыли пароль?">Забыли пароль?</a>
+    {% endif %}
+</div>

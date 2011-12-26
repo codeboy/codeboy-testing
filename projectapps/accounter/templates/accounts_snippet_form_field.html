@@ -1,0 +1,15 @@
+<div class="ioPole div1of2 {% if style %}{{ style }}{% endif %}">
+    {% if form.errors %}
+        <strong style="color:red;">
+            {% for error in form.errors %}{{ error }}{% endfor %}
+        </strong>
+    {% endif %}
+    <div class="clear"></div>
+    {% if form.field.required %}
+        <label for="id_{{ form.name }}">{{ form.label }}<font color="red">&nbsp;*</font></label>
+    {% else %}
+        {{ form.label_tag }}
+    {% endif %}
+    {{ form }}
+</div>
+

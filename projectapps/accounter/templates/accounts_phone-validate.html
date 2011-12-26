@@ -1,0 +1,38 @@
+{% extends 'base_accounts.html' %}
+
+{% block title %}Профиль | подтверждение телефона{% endblock %}
+
+{% block content %}
+
+    {% include 'ext_messages.html' %}
+
+<div class="unitBox-Shadow" id="viewRegistration">
+    <div class="unitCont">
+        <h1>Подтверждение телефона</h1>
+
+        {% if phone_error %}
+        <p>Номер мобильного телефона задан не верно!<br/>
+            Пожалуйста <a href="/profile/edit/" title="">отредактируйте его</a> прежде чем продолжить!</p>
+        {% else %}
+        <p>
+            Ваш номер телефона: +7{{ phone }}
+        </p>
+
+        <form accept="/profile/phone-validate/" method="POST">{% csrf_token %}
+        {% if not code_go %}
+            <p>Вам, на этот номер телефона, будет выслан особый код который надо будет ввести в поле</p>
+            <p>Если это не верный номер, то вы <a href="/profile/edit/" title="">можете его изменить</a></p>
+            <br/><input type="submit" value="отправить код на телефон" name="code_sms">
+        {% else %}
+            <label><input type="text" name="code_input">поле для ввода кода</label>
+            <div style="clear:both;"></div>
+            <br/><input type="submit" value="подтвердить" name="code_submit">
+            <input type="submit" value="отправить код ещё раз" name="code_sms">
+        {% endif %}
+        </form>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

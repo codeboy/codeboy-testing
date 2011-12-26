@@ -1,0 +1,29 @@
+{% extends "base_mailer.html" %}
+{% block content %}
+<div class="unitBox-Shadow">
+    <div class="unitCont">
+        <a href="{% url mailer_add %}">Добавить рассылку</a>
+
+        <div class="wrapper">
+        <table>
+        {% for mailer in mailers %}
+            <tr>
+                <td width="40">#{{ mailer.id }}</td>
+                <td width="200">{{ mailer }}</td>
+                <td width="50">{% if mailer.sms %}СМС{% else %}E-mail{% endif %}</td>
+                <td width="100">{{ mailer.get_status_display }}</td>
+                <td width="40">{{ mailer.counter }}</td>
+                <td width="180"><a href="{% url mailer mailer.id %}">Посмотреть параметры</a></td>
+                <td>
+                    {% ifequal mailer.status 'BGN' %}
+                        <a href="{% url mailer_start mailer.id %}"> Запустить рассылку</a>
+                    {% endifequal %}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

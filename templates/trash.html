@@ -1,0 +1,782 @@
+{% load page_extras %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{% block title %}{% endblock %} | Stakos.ru</title>
+
+    {% include "head-includes.html" %}
+    {% block static %}
+        <script type="text/javascript" src="/media/js/scripts.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                toggleSearchPanel();
+            });
+        </script>
+    {% endblock %}
+
+</head>
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+        <header>
+			<hgroup>
+				<a href="/."  class="logo" title="СтаКос - Запчасти для импортных грузовиков, прицепов и автобусов">
+					<img src="/media/images/stakos_logo2.jpg" alt="СтаКос - Запчасти для импортных грузовиков, прицепов и автобусов"></a>
+				<div class="slogan">Запчасти для импортных грузовиков <span>прицепов и автобусов</span></div>
+			</hgroup>
+			<nav>
+				<div id="mainMenu">
+				    <ul>
+                        {% show_category_root %}
+                        <li class="current"><a href="/"><span>Автозапчасти</span></a></li>
+                        <li><a href="/"><span>Личный кабинет</span></a></li>
+                        <li><a href="/"><span>Отзывы</span></a></li>
+				    </ul>
+				</div>
+			</nav>
+        </header>
+    </div>
+
+    <div id="middle">
+
+		<div id="container">
+			<div id="content">
+				<div class="unitIron search_line">
+					<div class="blue_search_line">
+                        <div class="line_search">
+                            <span>Искать запчасти<br/>по сайту</span>
+                            <input type="text" class="text" value="карбюратор"/>
+                            <select>
+                                <option>по коду</option>
+                                <option>по VIN</option>
+                                <option>по бренду</option>
+                            </select>
+                            <input type="submit" class="go_search" value="искать">
+                        </div>
+					</div>
+				</div><!-- #header-->
+
+                <div id="mainFlashPanel">
+                    <div id="mainFlash">
+                    <object type="application/x-shockwave-flash" data="/media/swf/main_stakos.swf" width="799" height="227" >
+                        <param name="movie" value="/media/swf/main_stakos.swf" />
+                        <param value="opaque" name="wmode">
+                        <img src="/media/swf/main_stakos.jpg" width="799" height="227" alt="" />
+                    </object>
+                    </div>
+                </div>
+                <div id="searchPanel" class="search_panel" style="height: 20px;">
+                    <div id="searchPanelForm" class="unitCont" style="display: none;">
+                    <form>
+                        <div class="title">Расширенный поиск</div>
+                        <div class="ioPanel">
+                            <input type="text" class="text" value="Введите код товара"/>
+                            <label>Склад:</label>
+                            <select>
+                                <option>Санкт-Петербург</option>
+                            </select>
+                            <input type="submit" class="go_search" value="искать">
+                        </div>
+                        <div class="checkPanel">
+                            <label><input type="checkbox" name="option1" value="a1" checked> Любое совпадение</label>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="checkPanel">
+                            <label><input type="checkbox" name="option1" value="a1" checked> По коду изготовителя</label>
+                            <label><input type="checkbox" name="option1" value="a1" checked> По коду товара</label>
+                            <label><input type="checkbox" name="option1" value="a1" checked> По описанию</label>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                    </div>
+                    <a href="#" title="" class="check toggleSearchPanel close">расширенный поиск</a>
+                </div>
+
+				<div class="contentBody">
+					<strong>Content:</strong> Sed placerat accumsan ligula. Aliquam felis magna, congue quis, tempus eu, aliquam vitae, ante. Cras neque justo, ultrices at, rhoncus a, facilisis eget, nisl. Quisque vitae pede. Nam et augue. Sed a elit. Ut vel massa. Suspendisse nibh pede, ultrices vitae, ultrices nec, mollis non, nibh. In sit amet pede quis leo vulputate hendrerit. Cras laoreet leo et justo auctor condimentum. Integer id enim. Suspendisse egestas, dui ac egestas mollis, libero orci hendrerit lacus, et malesuada lorem neque ac libero. Morbi tempor pulvinar pede. Donec vel elit.
+
+					<div class="unitBox greyBox" id="tagsGroup">
+						<div class="wrapper">
+                            <div class="">
+                                <p>По вашему запорсу было найдено 23 455 товаров в торговых группах:</p>
+                                <ul>
+                                    <li><a href="" title="Тормозная система">Тормозная система</a>,</li>
+                                    <li><a href="" title="Подвеска">Подвеска</a>,</li>
+                                    <li><a href="" title="Система охлаждения">Система охлаждения</a></li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+						</div>
+					</div>
+
+					<div class="unitBox greyBox ">
+						<div class="unitCont">
+                            {% block subSubMenu %}{% endblock %}
+						</div>
+					</div>
+
+					<div class="unitBox-1of2 fLeft brandList">
+						<a href="" title="Volvo" class="markLogo">
+                            <img src="/media/content/brand_volvo.jpg" alt="Volvo"/></a>
+                        <a href="" title="Volvo" class="markName">Volvo</a>
+                        <ul class="markList-small">
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a></li>
+						</ul>
+					</div>
+					<div class="unitBox-1of2 fRight brandList">
+						<a href="" title="Volvo" class="markLogo">
+                            <img src="/media/content/brand_volvo.jpg" alt="Volvo"/></a>
+                        <a href="" title="Volvo" class="markName">Volvo</a>
+                        <ul class="markList-small">
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a>,</li>
+                            <li><a href="" title="">Protos</a>,</li>
+                            <li><a href="" title="">Kilometras</a></li>
+						</ul>
+					</div>
+
+                    <div class="clear"></div>
+
+                    <div class="unitBox-Shadow" id="formOrder">
+                        <form method="">
+                            <div class="wrapper-blue">
+                                <h1>Заказать запчасть</h1>
+                                <div class="ioPole div1of2">
+                                    <label>Марка:</label>
+                                    <select>
+                                        <option>Выбрать</option>
+                                    </select>
+                                </div>
+                                <div class="ioPole div1of2 lastDiv">
+                                    <label>Модель:</label>
+                                    <select>
+                                        <option>Выбрать</option>
+                                    </select>
+                                </div>
+                                <div class="ioPole div1of2">
+                                    <label>Двигатель:</label><input type="text"/>
+                                </div>
+                                <div class="ioPole div1of2 lastDiv">
+                                    <label>Год выпуска:</label>
+                                    <select>
+                                        <option>Выбрать</option>
+                                    </select>
+                                </div>
+                                <div class="ioPole">
+                                    <label>Описание детали:</label><textarea></textarea>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="wrapper-grey">
+                                <div class="clear"></div>
+                                <div class="ioPole div1of2">
+                                    <label>Имя:</label><input type="text"/>
+                                </div>
+                                <div class="ioPole div1of2 lastDiv">
+                                    <label>Телефон:</label><input type="text"/>
+                                </div>
+                                <div class="ioPole div1of2">
+                                    <label>E-mail:</label><input type="text"/>
+                                </div>
+                                <div class="ioPole div1of2 lastDiv">
+                                    <input type="button" value="Заказать" class="goOrder"/>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="unitBox-Shadow" id="itemView">
+						<div class="wrapper">
+                            <div class="fLeft">
+                                <h1>Топливный фильтр SCT ST392(Toyota)</h1>
+                                <a href="/media/images/item_prev.jpg" title="Топливный фильтр SCT ST392(Toyota)">
+                                    <img src="/media/images/item_prev.jpg" alt="Топливный фильтр SCT ST392(Toyota)" title="Топливный фильтр SCT ST392(Toyota)"/></a>
+                                <a href="/" title="Увеличить" class="next"><span>(+)</span>увеличить</a>
+                            </div>
+                            <div class="fRight">
+                                <dl class="itemArt">
+                                    <dt>Код производителя:</dt>
+                                    <dd>2010300</dd>
+                                    <dt>Артикул:</dt>
+                                    <dd>045058765</dd>
+                                    <dt>Код:</dt>
+                                    <dd>5003852086</dd>
+                                </dl>
+                                <div class="clear"></div>
+                                <div class="nameTable">
+                                    <h4>Дополнительная информация:</h4>
+                                </div>
+                                <table class="itemProp">
+                                    <tr>
+                                        <td>Высота</td>
+                                        <td>71 мм</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Диаметр</td>
+                                        <td>87 мм</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bcgjkmpjdfybt фильта</td>
+                                        <td>накручиваемый</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Тип корпуса</td>
+                                        <td>патрон</td>
+                                    </tr>
+                                </table>
+                                <div class="nameTable">
+                                    <h4>Применяемость:</h4>
+                                </div>
+                                <ul class="itemApply">
+                                    <li><a href="" title="">Alfa romeo</a>|</li>
+                                    <li><a href="" title="">Man</a>|</li>
+                                    <li><a href="" title="">Isuzu</a>|</li>
+                                    <li><a href="" title="">Volvo</a>|</li>
+                                    <li><a href="" title="">Alfa romeo</a>|</li>
+                                    <li><a href="" title="">Man</a>|</li>
+                                    <li><a href="" title="">Isuzu</a>|</li>
+                                    <li><a href="" title="">Volvo</a></li>
+                                <ul>
+                            </div>
+                            <div class="itemDescr content_html">
+                                 <p>Текстовое описание запчасти - <b>свою миссию</b> ГК СтаКос видит в том, чтобы способствовать развитию и повышению эффективности транспортного сектора в экономике России.</p>
+                            </div>
+                        </div>
+                        <div class="bayItem">
+                            <span class="price">1050 руб</span>
+                            <a href="" title="" class="addBasket"><span>в корзину</span></a>
+                            <a href="" title="" class="setQuestion">Задать вопрос</a>
+                        </div>
+                    </div>
+
+                    <div class="unitBox-Shadow" id="searchRes">
+						<div class="wrapper">
+                            <div class="titleUnit">
+                                <div class="h1-title">Результаты поиска <span>(1 из 172)</span></div>
+                                <div class="controlList">
+                                    <a href="" title="" class="listBack"></a>
+                                    <a href="" title="" class="listNext"></a>
+                                </div>
+                                <div class="selectCity">
+                                    <span>Место доставки</span>
+                                    <select>
+                                        <option>Санкт-Петербург</option>
+                                        <option>Москва</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="headControlTable">
+                                <table>
+                                    <tr>
+                                        <td class="cBrand"><span>Бренд</span></td>
+                                        <td class="cInformation"> </td>
+                                        <td class="cArticle"><span>Артикул</span></td>
+                                        <td class="cDescription"><span>Описание</span></td>
+                                        <td class="cCount"><span>Кол-во</span></td>
+                                        <td class="cCountDay"><span>Доставка</span><br/><small>(дней)</small></td>
+                                        <td class="cStorageName"><span>Склад</span><br/><small>(отгрузки)</small></td>
+                                        <td class="cPrice"><span>Цена</span><br/><small>(руб.)</small></td>
+                                        <td class="cCountInput"><span>Кол-во</span></td>
+                                        <td class="cBay"><span></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="nameTable">
+                                <h4>Тормозная система</h4>
+                            </div>
+                            <div class="resultTable">
+                                <table>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription"><a href="">Тормозной диск с подшибником диск с подшибником</a></td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription"><a href="">Тормозной диск с подшибником</a></td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription"><a href="">Тормозной диск с подшибником  диск с подшибником</a></td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription">Тормозной диск с подшибником</td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription">Тормозной диск с подшибником</td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription">Тормозной диск с подшибником</td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="nameTable">
+                                <h4>Тормозная система</h4>
+                            </div>
+                            <div class="resultTable">
+                                <table>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription">Тормозной диск с подшибником</td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cBrand">BOSH</td>
+                                        <td class="cInformation"><a href="" title="">i</a></td>
+                                        <td class="cArticle">8535658</td>
+                                        <td class="cDescription">Тормозной диск с подшибником</td>
+                                        <td class="cCount"><10</td>
+                                        <td class="cCountDay">12</td>
+                                        <td class="cStorageName">СПБ</td>
+                                        <td class="cPrice">2 358</td>
+                                        <td class="cCountInput"><input type="text"/></td>
+                                        <td class="cBay"><a href="" title="Купить">Купить</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="unitBox-Shadow">
+						<div class="unitCont">
+                            <div class="content_html">
+                                <!-- Контент -->
+                               <h1>Группа компаний "СтаКос" - в будущее вместе!</h1>
+
+                               <p>
+                                   <hr/>
+                                   <i>Группа компаний "СтаКос" является лидером в России по специализированной оптовой и розничной торговле запасными частями для грузовых автомобилей, прицепов и автобусов европейского производства.</i>
+                                   <hr/>
+                               </p>
+                               <p>Свою миссию ГК СтаКос видит в том, чтобы способствовать развитию и повышению эффективности транспортного сектора в экономике России.</p>
+                               <p>Для реализации этой миссии мы ставим перед собой следующие цели:</p>
+                               <ol>
+                                   <li>Добиться высочайших стандартов ведения бизнеса </li>
+                                   <li>Создать плодотворную рабочую среду и привлекательные условия труда для своих сотрудников </li>
+                                   <li>Сохранить гибкость и быстроту реакции в условиях меняющегося рынка, чтобы максимально быстро и точно удовлетворять потребности наших клиентов </li>
+                                   <li>Непрерывно совершенствовать логистическую систему, чтобы наиболее эффективно и экономично доставить запчасти туда, где в них нуждаются </li>
+                                   <li>Повышать потенциал наших сотрудников, в том числе технические знания наших консультантов, чтобы помочь нашим клиентам в выборе необходимых запчастей </li>
+                                   <li>Быть в курсе ценовых тенденций рынка, а также жестко следить за своими издержками, чтобы помочь нашим клиентам максимально снизить свои расходы </li>
+                                   <li>Поддерживать щирокий ассортимент продукции в наличии (более 9000 наименований), чтобы клиент мог сэкономить драгоценное время, купив все необходимое в одном магазине </li>
+                                   <li>Находиться в постоянном поиске&nbsp;новых производителей запасных частей и выбирать лучших с точки зрения соотношения "цена-качество".</li>
+                               </ol>
+                               <p>В своем развитии ГК СтаКос не стоит на месте. Постоянно открываются розничные магазины по всей России с широким ассортиментом запчастей в наличии. Это дает возможность&nbsp;нашим клиентам&nbsp;решать проблемы дефицита запчастей для иностранных грузовиков и автобусов.</p>
+                               <p>Мы следим за научно-техническим прогрессом и ставим его на службу нашим интересам, а значит, и интересам наших клиентов.</p>
+                               <p>Прямые поставки запасных частей от&nbsp;ведущих мировых&nbsp;производителей, постоянный мониторинг рынка позволяют&nbsp;нам&nbsp;удерживать&nbsp;самые низкие цены на Северо-Западе и&nbsp;в целом по&nbsp;России.</p>
+                               <div class="blueUnit">
+                                   <h3>Наши плюсы:</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ широкий выбор запчастей в наличии в розницу и оптом<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ весь товар сертифицирован в России<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ самые низкие цены в Вашем регионе<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ быстрое оформление заказа<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ удобное расположение магазинов<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ поддержка гарантии производителя на всю продукцию
+                               </div>
+                               <p>Благодаря жесткому отслеживанию качества мы исключаем из нашего ассортимента низкокачественные товары. В число поставщиков компании "СтаКос" попадают только производители запчастей, прошедшие сертификацию по системе ISO. Кроме того, уже в России все запчасти проходят сертификацию по российским стандартам качества..</p>
+                               <!-- end Контент -->
+
+                                   <h1>Самая большая в России сеть магазинов запчастей для грузовой техники</h1>
+                                   <p><hr/><i>Группы компаний «СтаКос» охватывает европейскую часть России и постоянно растет. Все розничные магазины находятся вблизи крупных магистралей центральных городов нашей страны.</i><hr/></p>
+                                   <p>Проезд к каждому представительству «СтаКос» обозначен с помощью дорожных указателей, размещенных во всех регионах, охваченных нашей сетью. С подробными схемами проезда к каждому из магазинов, а также контактной информацией можно ознакомиться&nbsp;<a href="/contacts/" title="Контакты">здесь.</a>&nbsp;Профессиональные продавцы-консультанты ответят на технические вопросы и&nbsp;помогут разобраться в ассортименте&nbsp;запасных частей и аксессуаров для грузового транспорта и прицепов импортного производства, а также подобрать литературу по ремонту и обслуживанию Вашего грузовика или прицепа.&nbsp;<br><br>Всегда высокое качество и известные мировые бренды,&nbsp;оптимальные цены и широкий ассортимент продукции (более 9000 наименований), специальные предложения и акции, внимание к каждому клиенту, а также вежливое и оперативное обслуживание позволяет группе компаний «СтаКос» держать лидирующие позиции на рынке запасных частей для грузовой техники в России.&nbsp;<br><br>ГК «СтаКос» является дилером компаний Firestone, Blacktech, Dan-Block, Sabo, CEI, Sertplas,&nbsp;SEM, Mansons, CDC, Roizmark, Templin, Graurg,&nbsp;а также эксклюзивным представителем компаний Verfasser,&nbsp;Korn, Roizmark&nbsp;на территории России. Широкий ассортимент данной продукции всегда представлен в сети «СтаКос» по оптимальным ценам.&nbsp;</p>
+                                   <div class="blueUnit">
+                                       <h3>Акции!</h3>
+                                       <p>Во всех магазинах розничной сети проходят <a href="http://www.stakos.ru/shop/promo/">акции</a>, а также действует накопительная дисконтная и бонусная система. Для&nbsp;постоянных клиентов действуют&nbsp;скидки до 25%! Подробнее вы можете ознакомиться&nbsp; с дисконтной и бонусной ГК "СтаКос" системой <a href="http://www.stakos.ru/offers/8620626/">здесь</a>.</p>
+                                   </div>
+                                   <p>Группа компаний «СтаКос» предоставляет гарантию на все товары. Сроки и условия гарантии всегда можно уточнить у Администраторов или продавцов-консультантов магазинов розничной сети.&nbsp;<br><br>Если у Вас есть пожелания по работе розничных магазинов или жалобы на их работу &ndash; пожалуйста, пишите&nbsp;книга жалоб и предложений.&nbsp;<br><br>Адреса, телефоны, контактные лица и схемы проезда - смотрите в разделах&nbsp;<a href="http://stakos.alt-p.ru/contacts/" title="Контакты">Контакты</a>&nbsp;и&nbsp;Регионы.&nbsp;</p>
+                                    <h1>Контакты</h1>
+                                    <hr/>
+                                    <p><b>Телефон Секретариата: (812) 449-99-00</b><br/>
+                                    Вам предоставят контактную информацию по всем интересующим Вас вопросам<br/>
+                                        <br/>
+                                    <b>Главный офис:</b> Санкт-Петербург, Московское шоссе, 46-А<br/>
+                                    <p style="text-align: center;">
+                                       <img src="/media/content/map.jpg" alt=""/>
+                                    </p>
+                                    <hr/>
+                                    <h3>Оптово-розничные представительства</h3>
+                                    <ul class="representation_list">
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_1.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Санкт-Петербург</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_2.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Мурманск</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_3.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Петрозаводск</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_4.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Выборг</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_5.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Великий-Новгород</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_6.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Пермь</a>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul class="representation_list">
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_7.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Нижний-Новгород</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_8.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Воронеж</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/representation_9.jpg" alt=""/>
+                                            </a>
+                                            <a href="" title="">Псков</a>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+
+                                    <h3>Санкт-Петербург</h3>
+                                    <hr/>
+                                    <ul class="address_list">
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_spb_1.jpg" alt="Стакос ул. Орджоникидзе, 27"/>
+                                            </a>
+                                            <a href="" title="">ул. Орджоникидзе, 27</a>
+                                            <p>
+                                                8 911 926 98 99<br/>
+                                                (812) 327-87-53<br/>
+                                                (812) 382-98-90
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_spb_2.jpg" alt="Стакос ул. Орджоникидзе, 27"/>
+                                            </a>
+                                            <a href="" title="">ул. Народная, 68</a>
+                                            <p>
+                                                (812) 975-09-00<br/>
+                                                8 911 960 79 78
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_spb_3.jpg" alt="Стакос ул. Орджоникидзе, 27"/>
+                                            </a>
+                                            <a href="" title="">Пр. Маршала Говорова, 10</a>
+                                            <p>
+                                                8 911 929 04 40<br/>
+                                                (812) 929-04-40
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul class="address_list">
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_spb_4.jpg" alt="Стакос Парнас ( ул.Домостроительная, 16 )"/>
+                                            </a>
+                                            <a href="" title="">Парнас ( ул.Домостроительная, 16 )</a>
+                                            <p>
+                                                8 911 926 98 99<br/>
+                                                (812) 327-87-53<br/>
+                                                (812) 382-98-90
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_spb_5.jpg" alt="Стакос Шушары (ул. Железнодорожная, 9)"/>
+                                            </a>
+                                            <a href="" title="">Шушары (ул. Железнодорожная, 9)</a>
+                                            <p>
+                                                (812) 975-09-00<br/>
+                                                8 911 960 79 78
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">Автостоянка "Руслан" (пос. Шушары)   </a>
+                                            <p>
+                                                8 911 928 98 36
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul class="address_list">
+                                        <li>
+                                            <a href="" title="">Московское шоссе 13А   </a>
+                                            <p>
+                                                8  911 928 98 43<br/>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">Автостоянка "МАТЭП" (пос. Шушары)</a>
+                                            <p>
+                                                8 911 928 98 41<br/>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <a href="" title="">ул. Софийская 61-63</a>
+                                            <p>
+                                                8 911 219 94 05
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <hr/>
+                                    <h3>Мурманск, официальное представительство ГК «СтаКос»</h3>
+                                    <ul class="address_list">
+                                        <li>
+                                            <a href="" title="">
+                                                <img src="/media/content/map_mur_1.jpg" alt="Стакос ул. Домостроительная, 18"/>
+                                            </a>
+                                        </li>
+                                        <li><br/><br/><br/>
+                                            <a href="" title="">ул. Домостроительная, 18</a>
+                                        </li>
+                                        <li>
+                                            <p>     <br/><br/>
+                                                	(8152) 411515<br/>
+                                                    (8152) 435757<br/>
+                                                    +7 921 734 24 18<br/>
+                                                    +7 921 725 13 04
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <p></p>
+
+                            </div>
+						</div>
+					</div>
+
+					<div class="unitBox-Shadow pathLinks">
+						<div class="unitCont">
+							<ul>
+								<li><a href="" title="">Каталог</a>/</li>
+								<li><a href="" title="">Поиск</a>/</li>
+								<li><span>По брендам</span></li>
+							</ul>
+						</div>
+					</div>
+
+					{% block content %}
+                        Some sort of content will goes here.
+                        <br /><br /><br /><br />
+                    {% endblock %}
+
+				</div>
+			</div><!-- #content-->
+
+		</div><!-- #container-->
+
+		<div class="sidebar" id="sideLeft">
+			<div class="unitIron">
+				<div id="subMenu">
+				<nav>
+					<ul>
+						<li class="current"><a href="/"><span>По каталогу</span></a></li>
+						<li><a href="/"><span>По автомобилю</span></a></li>
+						<li><a href="/"><span>По бренду</span></a></li>
+						<li><a href="/"><span>Расширеный поиск</span></a></li>
+						<li><a href="/"><span>Заказать запчасть</span></a></li>
+						<li><a href="/"><span>История поиска</span></a></li>
+					</ul>
+				  </nav>
+				</div>
+			</div><!-- #header-->
+
+            <div id="basketMessageUnit">
+                <div id="basketMenu">
+                    <nav>
+                        <a href="/" class="basket active"><span>Корзина</span></a>
+                        <a href="/" class="messages"><span>Сообщения</span></a>
+                    </nav>
+                </div>
+                <div class="unitBox-Shadow">
+                    <div class="unitCont">
+                        <div class="title_basket">Покупок на сумму:</div>
+                        <div class="total_price">321 500р</div>
+                        <ul>
+                            <li><a href="/">Колесо большое круглое<span>(12шт)</span></a><abbr>2399р</abbr><div class="clear"></div></li>
+                            <li><a href="/">Шестерня для трактотра<span>(1шт)</span></a><abbr>980р</abbr><div class="clear"></div></li>
+                            <li><a href="/">Дверь Man задняя<span>(5шт)</span></a><abbr>32 455р</abbr><div class="clear"></div></li>
+                            <li><a href="/">Колесо большое круглое<span>(12шт)</span></a><abbr>48 822р</abbr><div class="clear"></div></li>
+                        </ul>
+                        <a href="" title="">Оформить</a>
+                    </div>
+                </div>
+            </div>
+
+			<strong>Left Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.
+            {% show_city %}
+		</div><!-- .sidebar#sideLeft -->
+		<div class="inner_round"></div>
+
+		<div class="clear"></div>
+
+		<div class="bodyContent">
+            <div class="size1of2">
+                <div class="unitCont">
+                    <h3>СтаКос - в будущее вместе!</h3>
+                    <p>Группа компаний "СтаКос" является лидером российского рынка продаж запасных частей  для грузовых автомобилей, прицепов, полуприцепов и автобусов европейского производства. Всегда в наличии по оптимальным ценам широкий ассортимент высококачественных запчастей для грузовой техники SCANIA, VOLVO, MAN, Mercedes-Benz, DAF, IVECO, а также BPW, SAF, ROR, YORK, FRUEHAUF и TRAILOR.</p>
+                </div>
+            </div>
+            <div class="size1of2">
+                <div class="unitCont newsList">
+                    <h3>Новости</h3>
+                    <ul>
+                        <li>
+                            <a href="" title=""><img src="" alt="" title=""/></a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+		</div>
+
+		<div id="allBrands">
+            <ul>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/1.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/media/images/brands/3.jpg" alt=""/></a></li>
+            </ul>
+            <div class="clear"></div>
+            <div class="next"><a href="" title="">все бренды</a> &raquo;</div>
+		</div>
+
+	</div><!-- #middle-->
+
+    {% include 'ext_user_block.html' %}
+
+</div><!-- #wrapper -->
+
+<div id="footer">
+    <div class="fleft">
+        <div class="unitCont">
+            <img src="/media/images/counters.gif"/>
+        </div>
+    </div>
+	<div class="fright">
+        <div class="unitCont">
+	        &copy; 2010 Группа компаний СтаКос.<br/>
+            Все права защищены.
+        </div>
+	</div>
+</div><!-- #footer -->
+
+</body>
+</html>

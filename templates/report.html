@@ -1,0 +1,34 @@
+{% extends 'second_index.html' %}
+
+{% block title %}Бренд |{% endblock %}
+
+{% block static %}
+    <script type="text/javascript" src="/media/js/scripts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            toggleSearchPanel();
+        });
+    </script>
+{% endblock %}
+
+{% include 'menu_.html' %}
+{% block subMenu %}
+    <ul>
+        <li><a href="/"><span>По каталогу</span></a></li>
+        <li><a href="/"><span>По автомобилю</span></a></li>
+        <li class="current"><a href="/brands/"><span>По бренду</span></a></li>
+        <li><a href="/"><span>Расширеный поиск</span></a></li>
+        <li><a href="/"><span>Заказать запчасть</span></a></li>
+        <li><a href="/"><span>История поиска</span></a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+    {% include 'ext_messages.html' %}
+
+    {% load chunks %}
+    {% chunk code %}
+
+
+{% endblock %}

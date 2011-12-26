@@ -1,0 +1,49 @@
+
+{% extends "index.html" %}
+
+{% block static %}
+{#    <link rel="stylesheet" href="media/css/projectile.css" type="text/css" media="screen, projection" />#}
+{% endblock %}
+
+{% block title %}main | Projectile{% endblock %}
+
+
+{% block content %}
+    <div id="breadcrumbs">
+        <a href="{% url main %}">Главная</a> >
+{#        <a href="/projectile/" title="Project main">Projectile</a> >#}
+        {% block breadcrumbs %}ПиУ{% endblock %}
+    </div>
+
+    {% for message in messages %}
+    <div style="clear:both; width:50%; margin:7px auto; padding:5px 20px; border:1px solid #000; background:#ffc; {% if message.tags %}{{ message.tags }}{% endif %}" id="messages">
+        <div>
+            <ul class="messages">
+                <li>{{ message|safe }}</li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="contentWraper">
+        <div class="contentMenuBlock">
+            {% block prj_menu %}
+                <ul>
+                    <li><a href="{% url smy_objects_list %}">Обьекты</a></li>
+                    <li><a href="{% url smy_request_list_all %}">Заявки</a></li>
+{#                    <li><a href="/accounts/users/">Milestones</a></li>#}
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div class="subContentBlock">
+
+            {% block sub_content %}
+                content!
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
